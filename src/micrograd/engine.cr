@@ -159,6 +159,17 @@ module MicroGrad
       result
     end
 
+    # Natural log
+    def log
+      x = data
+      result = Value.new(Math.log(x), {self, nil}, "log")
+
+      result._backward do
+        self.grad += (T.new(1) / x) * result.grad
+      end
+      result
+    end
+
     # Sigmoid
     def sigmoid
       s = T.new(1) / (T.new(1) + Math.exp(-data))
