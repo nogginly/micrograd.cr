@@ -17,3 +17,4 @@ tmp*
 
 # Generated dag dot files
 *.dot
+*.png
